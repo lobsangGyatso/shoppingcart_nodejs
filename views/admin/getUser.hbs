@@ -1,0 +1,22 @@
+<div>
+    {{# each data}}
+
+        <div>
+       
+            <ul class="list-group">
+                 {{# each this}}
+                <li class="list-group-item">
+                   
+                    {{this.email}}<a href="/admin/getUser/{{this._id}}"  class="btn btn-info pull-right"  role="button">delete</a>
+                   
+                </li> 
+                {{/each}}
+            </ul>
+
+
+        
+
+        </div>
+
+    {{/each}}
+</div>  

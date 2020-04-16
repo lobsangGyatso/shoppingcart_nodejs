@@ -1,0 +1,52 @@
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/admin/adminIndex">Admin Context</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/admin/productInsert">Add </a></li>
+                <li> <a href="/admin/checkOrder ">Order</a></li>
+                 <li> <a href="/admin/getUser">User</a></li>
+               
+
+
+                
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div>
+    {{# each products}}
+
+        <div>
+       
+            <ul class="list-group">
+                 {{# each this}}
+                <li class="list-group-item">
+                   
+                    {{this.title}}<a href="/admin/product/{{this._id}}"  class="btn btn-info pull-right"  role="button">update</a>
+                    <a href="/admin/productDelete/{{this._id}}"  class="btn btn-danger pull-right" role="button">delete</a> 
+                </li> 
+                {{/each}}
+            </ul>
+
+
+        
+
+        </div>
+
+    {{/each}}
+</div>  

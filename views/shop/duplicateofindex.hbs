@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <div id="success" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+            {{ successMsg }}
+        </div>
+    </div>
+</div>
+
+{{# each products }}
+    <div class="row">
+        {{# each this }}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="w3-content" style="max-width:800px">
+        <img id="theimage" src="{{ this.productImage}}" alt="..." class="img-responsive" style="width:100%" >
+        <img id="theimage" src="{{this.productImage2}}" alt="..." class="img-responsive" style="width:100%" >
+        <img id="theimage" src="{{this.productImage3}}" alt="..." class="img-responsive" style="width:100%" >
+
+        <input type="radio" id="color" name="reader" value="red"  onClick="changeImage('{{productImage3}}');">Red<br>
+        <input type="radio" id="color" name="reader" value="black"  onClick="changeImage('{{this.productImage3}}');">Black<br>
+        <input type="radio" name="reader" value="blue"  onClick="changeImage('/images//jeansblue.jpg');">Blue
+        </div>
+        
+                        
+                    <script>
+function changeImage(imgName)
+  {
+    
+const queryString= imgName;
+      const usp=new URLSearchParams(queryString)
+      for (const [key, values] of usp){
+          console.log($[key] $[values])
+      }
+       console.log(usp.toString())
+     var lol= document.getElementById("theimage")
+     lol.src=imgName;
+     // console.log("theimage")
+     //image.src = imgName;
+     //colored=document.getElementById(color);
+
+  }
+                    </script>
+                         {{!-- <input type="radio" id="color" name="reader" value="red"  onClick="changeImage('images/grey.jpg');">red<br>
+                            <input type="radio" id="color" name="reader" value="blue"  onClick="changeImage('{{this.productImage3}}');">green<br>
+                            <input type="radio" name="reader" value="black"  onClick="changeImage('C:\Users\lobsanggyatso\Desktop\trouserred.jpg');">black
+                         --}}
+            
+                    
+                    <div class="caption">
+                        <form method="get">
+                            
+                    
+                        <h3>{{ this.title }}</h3>
+                        <p class="description">{{ this.description }}</p>
+                        <div class="clearfix">
+                            <div class="price pull-left">${{ this.price }}</div>
+                            <a href="/add-to-cart/{{this._id}}"  name="color" class="btn  btn-success pull-right" type="submit">Add to Shopping Cart</a>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{/each}}

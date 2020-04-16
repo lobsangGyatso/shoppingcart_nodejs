@@ -1,0 +1,173 @@
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <div id="success" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+            {{ successMsg }}
+        </div>
+    </div>
+</div>
+
+{{# each products }}
+    <div class="row">
+        {{# each this }}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="w3-content" style="max-width:800px">
+  <img class="mySlides" src="{{ this.productImage}}" alt="..." class="img-responsive" style="width:100%" data-target="#signin" data-toggle="modal" >
+ 
+</div>
+                    <div class="modal" id="signin">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="registration">Select a clothes</h3>
+                                    <button class="close" type="button" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body w3-content" style="max-width:800px">
+                                    <img class="mySlides" src="{{ this.productImage}}" alt="..." class="img-responsive" style="width:100%">
+                                    <img class="mySlides" src="{{ this.productImage2}}" alt="..." class="img-responsive"style="width:100%">
+                                     <img class="mySlides" src="{{ this.productImage3}}" alt="..." class="img-responsive" style="width:100%">
+                                </div>
+                                <div class="w3-center">
+  
+  <button class="w3-button demo" onclick="currentDiv(1)">grey</button> 
+  <button class="w3-button demo" onclick="currentDiv(2)">red</button> 
+  <button class="w3-button demo" onclick="currentDiv(3)">blue</button>
+                   
+</div>
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-red", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-red";
+}
+</script>             
+                    
+                    <div class="caption">
+
+                        
+                        <label class="checkbox-inline">
+                        <input type="checkbox" value="small" name="optradio">Small</label>
+                        <label class="checkbox-inline">
+                        <input type="checkbox" value="large" name="optradio">Large</label>
+                        <label class="checkbox-inline">
+                        <input type="checkbox" value="extralarge" name="optradio">Extra large</label>
+                        <h3>{{ this.title }}</h3>
+                        <p class="description">{{ this.description }}</p>
+                        <div class="clearfix">
+                            <div class="price pull-left">${{ this.price }}</div>
+                            <a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button">Add to Shopping Cart</a>
+                        </div>
+                    </div>
+
+                                <div class="modal-fotter">
+                                    <button type="submit"class="btn btn-success">Click OK</button>
+                                </div>
+
+                            </form>
+                            </div>
+                        </div>
+
+                    </div>
+            
+                    
+                    <div class="caption">
+
+                        
+                        <label class="checkbox-inline">
+                        <input type="checkbox" value="small" name="optradio">Small</label>
+                        <label class="checkbox-inline">
+                        <input type="checkbox" value="large" name="optradio">Large</label>
+                        <label class="checkbox-inline">
+                        <input type="checkbox" value="extralarge" name="optradio">Extra large</label>
+                        <h3>{{ this.title }}</h3>
+                        <p class="description">{{ this.description }}</p>
+                        <div class="clearfix">
+                            <div class="price pull-left">${{ this.price }}</div>
+                            <a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button">Add to Shopping Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{/each}}
+
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <div id="success" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+            {{ successMsg }}
+        </div>
+    </div>
+</div>
+
+{{# each products }}
+    <div class="row">
+        {{# each this }}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="w3-content" style="max-width:800px">
+  <img class="mySlides"  id="image" src="{{ this.productImage}}" alt="..." class="img-responsive" style="width:100%" data-target="#signin" data-toggle="modal" >
+ {{!-- <img class="mySlides" src="{{ this.productImage2}}" alt="..." class="img-responsive" style="width:100%" data-target="#signin" data-toggle="modal" >
+ <img class="mySlides" src="{{ this.productImage3}}" alt="..." class="img-responsive" style="width:100%" data-target="#signin" data-toggle="modal" > --}}
+</div><script>
+    function changeImageBlack(){
+        var img=document.getElementById("image");
+        img.src="/images/jeansblack.jpg";
+        //img.src="{{pro.productImage2}}"
+        return false;
+    }
+
+     function changeImageRed(){
+        var img=document.getElementById("image");
+        img.src="/images/jeansred.jpg";
+        //img.src="{{pro.productImage2}}"
+        return false;
+    }
+     function changeImageBlue(){
+        var img=document.getElementById("image");
+        img.src="/images/jeansblue.jpg";
+        //img.src="{{pro.productImage2}}"
+        return false;
+    }
+
+</script>       
+            
+                    
+                    <div class="caption">
+                    <button id="clickme" onclick="changeImageBlack();">black </button> 
+                    <button id="clickme" onclick="changeImageRed();">red</button> 
+                    <button id="clickme" onclick="changeImageBlue();">blue </button>  
+                       <h3>{{ this.title }}</h3>
+                        <p class="description">{{ this.description }}</p>
+                        <div class="clearfix">
+                            <div class="price pull-left">${{ this.price }}</div>
+                            <a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button">Add to Shopping Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{/each}}
+
